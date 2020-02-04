@@ -1,0 +1,22 @@
+﻿@model DemoApp2._2.Models.Employee
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewData["PageTitle"]</title>
+</head>
+<body>
+    <h1>Details.cshtml from Views/Home Folder</h1>
+    <h3>@ViewData["PageTitle"]</h3>
+
+    @{
+        var emp = ViewData["Employee"] as DemoApp2._2.Models.Employee;
+    }
+    <!--from view data loosely tuped-->
+    <div>Name: @emp.Name</div>
+    <div>Email: @emp.Email</div>
+
+    <!--from model strongly typed-->
+    <div>Name: @Model.Name</div>
+    <div>Email: @Model.Email</div>
+</body>
+</html>
