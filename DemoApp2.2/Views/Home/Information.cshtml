@@ -1,0 +1,12 @@
+﻿@model HomeDetailsViewModel
+
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml"; //added in _ViewStart.cshtml
+    ViewBag.Title = "Employee Info";
+}
+
+<h3>@Model.PageTitle</h3>
+<!--from model strongly typed-->
+<div>Name: @Model.Employee.Name</div>
+<div>Email: @Model.Employee.Email</div>
+<div>Department: @Model.Employee.Department</div>

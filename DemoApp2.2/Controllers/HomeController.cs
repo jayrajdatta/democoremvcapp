@@ -1,4 +1,5 @@
 ﻿using DemoApp2._2.Models;
+using DemoApp2._2.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace DemoApp2._2.Controllers
 {
+    [Route("[controller]")]
     public class HomeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -16,12 +18,21 @@ namespace DemoApp2._2.Controllers
             _employeeRepository = employeeRepository;
         }
 
-        public string Index()
-        {
-            //return "Hello from Home Controller";
-            return _employeeRepository.GetEmployee(1).Name;
-        }
+        //public string Index()
+        //{
+        //    //return "Hello from Home Controller";
+        //    return _employeeRepository.GetEmployee(1).Name;
+        //}
 
+        [Route("")]
+        //[Route("Home")]
+        //[Route("Home/Index")]
+        [Route("[action]")]
+        [Route("~/")]
+        public IActionResult Index()
+        {
+            return View(_employeeRepository.GetAllEmployees());
+        }
         //public JsonResult Index()
         //{
         //    return Json(new { id=1, name="Jayraj"});
@@ -38,15 +49,28 @@ namespace DemoApp2._2.Controllers
         //    Employee empModel = _employeeRepository.GetEmployee(1);
         //    return new ObjectResult(empModel);
         //}
-
-        public ViewResult Details()
+        //[Route("Home/Details/{id?}")]
+        [Route("[action]/{id?}")]
+        public ViewResult Details(int? id)
         {
-            Employee empModel = _employeeRepository.GetEmployee(1);
+            Employee empModel = _employeeRepository.GetEmployee(id ?? 1);
             ViewData["Employee"] = empModel;
             ViewData["PageTitle"] = "Employee Detais";
 
             return View(empModel);
             //return View();
+        }
+
+        [Route("[action]")]
+        public ViewResult Information()
+        {
+            HomeDetailsViewModel modeldata = new HomeDetailsViewModel()
+            {
+                Employee = _employeeRepository.GetEmployee(2),
+                PageTitle = "Employee Information"
+            };
+
+            return View(modeldata);
         }
     }
 }

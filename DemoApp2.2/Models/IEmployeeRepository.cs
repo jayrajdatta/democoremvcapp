@@ -8,5 +8,7 @@ namespace DemoApp2._2.Models
     public interface IEmployeeRepository
     {
         Employee GetEmployee(int id);
+
+        IEnumerable<Employee> GetAllEmployees();
     }
 }

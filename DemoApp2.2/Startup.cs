@@ -17,12 +17,13 @@ namespace DemoApp2._2
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private IConfiguration _config;
+        public Startup(IConfiguration config)
         {
-            Configuration = configuration;
+            _config = config;
         }
 
-        public IConfiguration Configuration { get; }
+        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -50,13 +51,26 @@ namespace DemoApp2._2
             
             app.UseStaticFiles();
             app.UseHttpsRedirection();
-            //app.UseMvc();
-            app.UseMvcWithDefaultRoute(); //default route named 'default' and the following template: '{controller=Home}/{action=Index}/{id?}'
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World! Current Time:" + DateTime.Now.ToLongTimeString());
-            });
+            //app.UseMvcWithDefaultRoute(); //default route named 'default' and the following template: '{controller=Home}/{action=Index}/{id?}'
+
+            //app.UseMvc( routes => {
+            //    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            //});
+
+            //use route attribute instead of above conventional routes
+            app.UseMvc();
+
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World! Current Time:" + DateTime.Now.ToLongTimeString() + "\n");
+            //    await next();
+            //});
+
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync(_config["MyKey"]);
+            //});
         }
     }
 }
