@@ -18,6 +18,9 @@
 <!--from model strongly typed-->
 <div>Name: @Model.Name</div>
 <div>Email: @Model.Email</div>
+<div class="card-footer text-center">
+    <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+</div>
 
 @section Scripts{ 
     <script src="~/js/CustomScript.js"></script>

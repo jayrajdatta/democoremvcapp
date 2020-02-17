@@ -27,3 +27,5 @@ D:\Projects\DemoApp2.2\DemoApp2.2\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index
 D:\Projects\DemoApp2.2\DemoApp2.2\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Projects\DemoApp2.2\DemoApp2.2\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
 D:\Projects\DemoApp2.2\DemoApp2.2\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Projects\DemoApp2.2\DemoApp2.2\bin\Debug\netcoreapp2.2\libman.json
+D:\Projects\DemoApp2.2\DemoApp2.2\obj\Debug\netcoreapp2.2\DemoApp2.2.csprojAssemblyReference.cache
